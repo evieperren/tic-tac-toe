@@ -20,22 +20,30 @@ $(document).ready(function(){
         field = 'x';
 
         box.click(function(){ 
-           console.log(box[0]);
-            box[0].replaceWith('x');
+            for (let i = 0; i < box.length; i++){
+                let boxItem = box[i];
+                console.log(boxItem);
+                box[i].replaceWith(field);
+            }
         })
     })
     playerTwo.click(function () {
         playerTwo.addClass('player-two--selected');
         playerOne.removeClass('player-one--selected');
         field = 'o';
+
+        box.click(function () {
+            for (let i = 0; i < box.length; i++) {
+                let boxItem = box[i];
+                console.log(boxItem);
+                box[0].replaceWith(field);
+            }
+        })
     })
 
-
-    
-
     $('.restart').click(function(){
-        $('.game__table--item').each(function(){
-            $('.game__table--item').html('');
+        box.each(function(){
+            field = '';
         })
     })
 
