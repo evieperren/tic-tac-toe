@@ -5,22 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./main.css">
-    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Tic Tac Toe</title>
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
     <section class="container">
-            <div class="player">
-                <p id="player-one">Player one</p>
-                <p id="player-one-score"></p>
+            <h1>Tic Tac Toe</h1>
+            <div class="player-one">
+                <p id="player-one__X">X</p>
+                <p id="player-one-score" class="player-one--score"> loser :(</p>
             </div>
-            <div class="player">
-                <p id="player-two">Player Two</p>
-                <p id="player-one-score"></p>
+            <div class="player-two">
+                <p id="player-two__O">O</p>
+                <p id="player-two-score" class="player-one--score"> winner!!</p>
             </div>
         <section class="game">
-
+            <table class="game__table">
+                <tr class="game__table__row">
+                    <td id="1" class="game__table--item game__table--item--left game__table--item--top"></td>
+                    <td id="2" class="game__table--item game__table--item--top"></td>
+                    <td id="3" class="game__table--item game__table--item--right game__table--item--top"></td>
+                </tr>
+                <tr class="game__table__row">
+                    <td id="4" class="game__table--item game__table--item--left"></td>
+                    <td id="5" class="game__table--item"></td>
+                    <td id="6" class="game__table--item game__table--item--right"></td>
+                </tr>
+                <tr class="game__table__row">
+                    <td id="7" class="game__table--item game__table--item--left game__table--item--bottom"></td>
+                    <td id="8" class="game__table--item game__table--item--bottom"></td>
+                    <td id="9" class="game__table--item game__table--item--right game__table--item--bottom"></td>
+                </tr>        
+            </table>
         </section>
+        <button class="restart">Restart game</button>
     </section>
     <script src="./index.js"></script>
 </body>
