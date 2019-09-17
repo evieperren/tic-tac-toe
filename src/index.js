@@ -20,6 +20,8 @@ $(document).ready(function(){
         if (playerOne.hasClass('player-one--selected')){
             $(this).text('X');
             teUpPlayertwo();
+           
+           // console.log($(this).text());
 
         } else if (playerTwo.hasClass('player-two--selected')){
             $(this).text('O');
@@ -27,10 +29,25 @@ $(document).ready(function(){
 
         } return;
     });
-     
+    
     $('.restart').click(function(){
        console.clear();
        box.text('');
     })
-
+   
+//    console.log(box[0]);
 })
+// winning combinations 
+
+    if(box[0].text() === 'x'){
+        console.log('worked');
+    }
+
+// 1, 2, 3
+// 4, 5, 6
+// 7, 8, 9
+// 1, 4, 7
+// 2, 5, 8
+// 3, 6, 9
+// 1, 5, 9
+// 3, 5, 7
