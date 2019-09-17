@@ -39,9 +39,9 @@ $(document).ready(function(){
 })
 // winning combinations 
 
-    if(box[0].text() === 'x'){
-        console.log('worked');
-    }
+    // if(box[0].text() === 'x'){
+    //     console.log('worked');
+    // }
 
 // 1, 2, 3
 // 4, 5, 6
