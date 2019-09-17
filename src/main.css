@@ -32,7 +32,7 @@ body {
     float: right; }
   .player-one--selected,
   .player-two--selected {
-    border-bottom: 2px solid #14bdac; }
+    border-bottom: 4px solid #14bdac; }
 
 .game {
   background-color: #14bdac;
