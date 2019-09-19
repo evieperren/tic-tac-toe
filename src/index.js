@@ -25,7 +25,7 @@ $(document).ready(function(){
             teUpPlayerOne();
         }
 
-        if(findWinner() != -1 && findWinner() != ""){
+        if(findWinner().matches != -1 && findWinner().matches != ""){
             if(findWinner() === 'X'){
                 playerOne.append('<p class="player-one--score">Winner :)</p>');
                 return
@@ -50,28 +50,52 @@ $(document).ready(function(){
             item9: $('#9').text(),
         }
         matches = {
-            match1: boxes.item1 == boxes.item2 && boxes.item2 == boxes.item3
+            match1: (boxes.item1 == boxes.item2) && (boxes.item2 == boxes.item3),
+            match2: (boxes.item4 == boxes.item5) && (boxes.item5 == boxes.item6),
+            match3: (boxes.item7 == boxes.item8) && (boxes.item8 == boxes.item9),
+            match4: (boxes.item1 == boxes.item4) && (boxes.item4 == boxes.item7),
+            match5: (boxes.item2 == boxes.item5) && (boxes.item5 == boxes.item8),
+            match6: (boxes.item3 == boxes.item6) && (boxes.item6 == boxes.item9),
+            match7: (boxes.item1 == boxes.item5) && (boxes.item5 == boxes.item9),
+            match8: (boxes.item3 == boxes.item5) && (boxes.item5 == boxes.item7)
         }
-        console.log(matches.match1);
-        if ((boxes.item1 == boxes.item2) && (boxes.item2 == boxes.item3)){
+        // switch(matches){
+        //     case matches.match1:
+        //         return boxes.item3;
+        //     case matches.match2:
+        //         return boxes.item6;
+        //     case matches.match3:
+        //         return boxes.item9;
+        //     case matches.match4:
+        //         return boxes.item7;
+        //     case matches.match5:
+        //         return boxes.item8;  
+        //     case matches.match6:
+        //         return boxes.item9;
+        //     case matches.match7:
+        //         return boxes.item9;
+        //     case matches.match8:
+        //         return boxes.item7;
+        // }
+        if (matches.match1){
             return boxes.item3;
-        } else if ((boxes.item4 == boxes.item5) && (boxes.item5 == boxes.item6)){
+        } else if (matches.match2){
             return boxes.item6;
-        } else if ((boxes.item7 == boxes.item8) && (boxes.item8 == boxes.item9)) {
+        } else if (matches.match3) {
             return boxes.item9;
-        } else if ((boxes.item1 == boxes.item4) && (boxes.item4 == boxes.item7)){
+        } else if (matches.match4){
             return boxes.item7;
-        } else if ((boxes.item2 == boxes.item5) && (boxes.item5 == boxes.item8)) {
+        } else if (matches.match5) {
             return boxes.item8;
-        } else if ((boxes.item3 == boxes.item6) && (boxes.item6 == boxes.item9)) {
+        } else if (matches.match6) {
             return boxes.item9;
-        } else if ((boxes.item1 == boxes.item5) && (boxes.item5 == boxes.item9)) {
+        } else if (matches.match7) {
             return boxes.item9;
-        } else if ((boxes.item3 == boxes.item5) && (boxes.item5 == boxes.item7)) {
+        } else if (matches.match8) {
             return boxes.item7;
         }   return -1;
     }
-    
+
     $('.restart').click(function(){
         console.clear();
         box.text('');
