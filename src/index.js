@@ -1,8 +1,11 @@
+// be in a constructor
 const playerOne = $('.player-one');
 const playerTwo = $('.player-two');
 const box = $('.game__table--item');
 
 $(document).ready(function(){
+    // better names
+    // change to store data in javascript and not depend on styling
     function teUpPlayerOne(){
         playerOne.addClass('player-one--selected');
         playerTwo.removeClass('player-two--selected');   
@@ -17,6 +20,7 @@ $(document).ready(function(){
 
     box.click(function() { 
         if (playerOne.hasClass('player-one--selected')){
+            // jquery interface
             $(this).text('X');
             teUpPlayertwo();
         
@@ -25,19 +29,23 @@ $(document).ready(function(){
             teUpPlayerOne();
         }
 
+        // does not need to call function find winner 4 times, the return value should be stored in a variable
         if(findWinner().matches != -1 && findWinner().matches != ""){
             if(findWinner() === 'X'){
+                // could be done with create element instead
                 playerOne.append('<p class="player-one--score">Winner :)</p>');
                 return
             } else  if (findWinner() === 'O'){
                 playerTwo.append('<p class="player-two--score">Winner :)</p>');
                 return
             } else {
+                // needs fixing 
                 $('body').append('<div>Draw</div>')
             }
          }
     });
     function findWinner(){
+        // this should return true or false 
         boxes = {
             item1: $('#1').text(),
             item2: $('#2').text(),
@@ -59,24 +67,6 @@ $(document).ready(function(){
             match7: (boxes.item1 == boxes.item5) && (boxes.item5 == boxes.item9),
             match8: (boxes.item3 == boxes.item5) && (boxes.item5 == boxes.item7)
         }
-        // switch(matches){
-        //     case matches.match1:
-        //         return boxes.item3;
-        //     case matches.match2:
-        //         return boxes.item6;
-        //     case matches.match3:
-        //         return boxes.item9;
-        //     case matches.match4:
-        //         return boxes.item7;
-        //     case matches.match5:
-        //         return boxes.item8;  
-        //     case matches.match6:
-        //         return boxes.item9;
-        //     case matches.match7:
-        //         return boxes.item9;
-        //     case matches.match8:
-        //         return boxes.item7;
-        // }
         if (matches.match1){
             return boxes.item3;
         } else if (matches.match2){
@@ -96,8 +86,28 @@ $(document).ready(function(){
         }   return -1;
     }
 
+    // should remember state and clear this
     $('.restart').click(function(){
         console.clear();
         box.text('');
     });
 });
+
+
+
+
+// let board = [
+//     [true, false, null],
+//     [null, false, null],
+//     [null, false, true]
+// ]
+
+// let board = [
+//     [true, false, null],
+//     [null, false, null],
+//     [null, false, true]
+// ]
+
+// O X - 
+// - X -
+// - O O
